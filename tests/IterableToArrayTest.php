@@ -10,7 +10,9 @@ declare(strict_types=1);
 namespace Navarr\Utils;
 
 use ArrayIterator;
+use PHPStan\BetterReflection\Reflection\Adapter\ReflectionClass;
 use PHPUnit\Framework\TestCase;
+use ReflectionMethod;
 
 class IterableToArrayTest extends TestCase
 {
@@ -40,5 +42,43 @@ class IterableToArrayTest extends TestCase
         $result = IterableToArray::convert($iterator, false);
         $this->assertEquals(['b'], $result);
         $this->assertNotEquals(['a' => 'b'], $result);
+    }
+
+    /**
+     * @dataProvider fallbackDataProvider
+     */
+    public function testFallback(iterable $iterator, bool $preserve_keys, array $expectedResult)
+    {
+        $reflectionMethod = new ReflectionMethod(IterableToArray::class, 'fallbackConvert');
+        $reflectionMethod->setAccessible(true);
+        $result = $reflectionMethod->invoke(null, $iterator, $preserve_keys);
+
+        $this->assertEquals($expectedResult, $result);
+    }
+
+    public function fallbackDataProvider(): array
+    {
+        return [
+            'Array w/ keys' => [
+                ['a' => 'b'],
+                true,
+                ['a' => 'b'],
+            ],
+            'Array w/out keys' => [
+                ['a', 'b'],
+                false,
+                ['a', 'b'],
+            ],
+            'Iterable w/ keys' => [
+                new ArrayIterator(['a' => 'b']),
+                true,
+                ['a' => 'b'],
+            ],
+            'Iterable w/out keys' => [
+                new ArrayIterator(['a', 'b']),
+                false,
+                ['a', 'b'],
+            ],
+        ];
     }
 }
