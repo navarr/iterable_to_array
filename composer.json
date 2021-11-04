@@ -1,6 +1,9 @@
 {
     "name": "navarr/iterable-to-array",
     "description": "A method for converting an iterable to an array, no matter what type of iterable",
+    "license": [
+        "MIT"
+    ],
     "require": {
         "php": ">=7.4"
     },
