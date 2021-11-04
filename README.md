@@ -1,10 +1,10 @@
 # IterableToArray::convert
-[![Latest Stable Version](http://poser.pugx.org/navarr/iterable-to-array/v)](https://packagist.org/packages/navarr/dependency-annotation)
-[![Total Downloads](http://poser.pugx.org/navarr/iterable-to-array/downloads)](https://packagist.org/packages/navarr/dependency-annotation)
-[![Latest Unstable Version](http://poser.pugx.org/navarr/iterable-to-array/v/unstable)](https://packagist.org/packages/navarr/dependency-annotation)
-[![License](http://poser.pugx.org/navarr/iterable-to-array/license)](https://packagist.org/packages/navarr/dependency-annotation)  
-![Tests](https://github.com/navarr/iterable_to_array/actions/workflows/commit.yml/badge.svg)
-![Code Coverage](https://codecov.io/gh/navarr/iterable_to_array/branch/main/graph/badge.svg?token=DJRUJTV2GW)
+[![Latest Stable Version](http://poser.pugx.org/navarr/iterable-to-array/v)](https://packagist.org/packages/navarr/iterable-to-array)
+[![Total Downloads](http://poser.pugx.org/navarr/iterable-to-array/downloads)](https://packagist.org/packages/navarr/iterable-to-array)
+[![Latest Unstable Version](http://poser.pugx.org/navarr/iterable-to-array/v/unstable)](https://packagist.org/packages/navarr/iterable-to-array)
+[![License](http://poser.pugx.org/navarr/iterable-to-array/license)](https://packagist.org/packages/navarr/iterable-to-array)  
+[![Tests](https://github.com/navarr/iterable_to_array/actions/workflows/commit.yml/badge.svg)](https://github.com/navarr/iterable_to_array/actions/workflows/commit.yml)
+[![Code Coverage](https://codecov.io/gh/navarr/iterable_to_array/branch/main/graph/badge.svg?token=DJRUJTV2GW)](https://app.codecov.io/gh/navarr/iterable_to_array/)
 
 A simple utility class that handles the boilerplate of converting an iterable into an array.
 
