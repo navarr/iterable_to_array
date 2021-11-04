@@ -25,4 +25,20 @@ class IterableToArrayTest extends TestCase
         $iterator = new ArrayIterator(['a', 'b']);
         $this->assertEquals(['a', 'b'], IterableToArray::convert($iterator));
     }
+
+    public function testConvertWithIteratorPreservesKeys()
+    {
+        $iterator = new ArrayIterator(['a' => 'b']);
+        $result = IterableToArray::convert($iterator);
+        $this->assertEquals(['a' => 'b'], $result);
+        $this->assertNotEquals(['b'], $result);
+    }
+
+    public function testConvertWithIteratorDoesNotPreserveKeys()
+    {
+        $iterator = new ArrayIterator(['a' => 'b']);
+        $result = IterableToArray::convert($iterator, false);
+        $this->assertEquals(['b'], $result);
+        $this->assertNotEquals(['a' => 'b'], $result);
+    }
 }
