@@ -60,24 +60,24 @@ class IterableToArrayTest extends TestCase
     {
         return [
             'Array w/ keys' => [
-                ['a' => 'b'],
+                ['a' => 'b', 'b' => 'c'],
                 true,
-                ['a' => 'b'],
+                ['a' => 'b', 'b' => 'c'],
             ],
             'Array w/out keys' => [
-                ['a', 'b'],
+                ['a' => 'b', 'b' => 'c'],
                 false,
-                ['a', 'b'],
+                ['b', 'c'],
             ],
             'Iterable w/ keys' => [
-                new ArrayIterator(['a' => 'b']),
+                new ArrayIterator(['a' => 'b', 'b' => 'c']),
                 true,
-                ['a' => 'b'],
+                ['a' => 'b', 'b' => 'c'],
             ],
             'Iterable w/out keys' => [
-                new ArrayIterator(['a', 'b']),
+                new ArrayIterator(['a' => 'b', 'b' => 'c']),
                 false,
-                ['a', 'b'],
+                ['b', 'c'],
             ],
         ];
     }
