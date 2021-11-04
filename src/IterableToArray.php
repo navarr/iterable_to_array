@@ -43,6 +43,25 @@ class IterableToArray
         }
 
         // Fallback for supposedly impossible scenario
+        return self::fallbackConvert($iterable, $preserve_keys);
+    }
+
+    /**
+     * Fallback to convert an iterable into an array
+     *
+     * This should, theoretically, never be used.  However, for the sake of forward-compatibility, it exists and is
+     * tested.
+     *
+     * It is extracted into its own private method to allow for unit testing.
+     *
+     * @template T
+     * @param iterable<T> $iterable
+     * @param bool $preserve_keys
+     * @return array<T>
+     */
+    #[Pure]
+    private static function fallbackConvert(iterable $iterable, bool $preserve_keys): array
+    {
         $result = [];
         foreach ($iterable as $key => $value) {
             if ($preserve_keys) {
