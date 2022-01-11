@@ -14,5 +14,10 @@
                 "Navarr\\Utils\\IterableToArray::convert"
             ]
         }
+    },
+    "logs": {
+        "stryker": {
+            "report": "/^.*$/"
+        }
     }
 }
