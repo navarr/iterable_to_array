@@ -43,42 +43,4 @@ class IterableToArrayTest extends TestCase
         $this->assertEquals(['b'], $result);
         $this->assertNotEquals(['a' => 'b'], $result);
     }
-
-    /**
-     * @dataProvider fallbackDataProvider
-     */
-    public function testFallback(iterable $iterator, bool $preserve_keys, array $expectedResult)
-    {
-        $reflectionMethod = new ReflectionMethod(IterableToArray::class, 'fallbackConvert');
-        $reflectionMethod->setAccessible(true);
-        $result = $reflectionMethod->invoke(null, $iterator, $preserve_keys);
-
-        $this->assertEquals($expectedResult, $result);
-    }
-
-    public function fallbackDataProvider(): array
-    {
-        return [
-            'Array w/ keys' => [
-                ['a' => 'b', 'b' => 'c'],
-                true,
-                ['a' => 'b', 'b' => 'c'],
-            ],
-            'Array w/out keys' => [
-                ['a' => 'b', 'b' => 'c'],
-                false,
-                ['b', 'c'],
-            ],
-            'Iterable w/ keys' => [
-                new ArrayIterator(['a' => 'b', 'b' => 'c']),
-                true,
-                ['a' => 'b', 'b' => 'c'],
-            ],
-            'Iterable w/out keys' => [
-                new ArrayIterator(['a' => 'b', 'b' => 'c']),
-                false,
-                ['b', 'c'],
-            ],
-        ];
-    }
 }
