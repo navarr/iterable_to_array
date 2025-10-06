@@ -2,7 +2,3 @@ parameters:
     level: max
     paths:
         - src
-    ignoreErrors:
-        - '#Static method Navarr\\Utils\\IterableToArray::fallbackConvert\(\) is unused.#'
-        - message: '#Unreachable statement - code above always terminates.#'
-          path: src/IterableToArray.php
